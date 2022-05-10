@@ -1,0 +1,20 @@
+import pygame
+pygame.init()
+
+screen=pygame.display.set_mode((640, 480))
+
+light=pygame.image.load('circle.png')
+
+while True:
+    for e in pygame.event.get():
+        if e.type == pygame.QUIT: break
+    else:
+        screen.fill(pygame.color.Color('Green'))
+        x,y = pygame.mouse.get_pos()
+        filter2 = pygame.surface.Surface((640, 480))
+        filter2.fill(pygame.color.Color('Grey'))
+        filter2.blit(light, (x-50,y-50))
+        screen.blit(filter2, (0, 0), special_flags=pygame.BLEND_RGBA_SUB)
+        pygame.display.flip()
+        continue
+    break
